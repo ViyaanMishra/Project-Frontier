@@ -24,13 +24,16 @@ func outbreak(disease_id: String, name: String, contagion: float, severity: floa
 	active_diseases.append(disease)
 
 func update(delta: float, colony: ColonyService, world: WorldService) -> void:
+	var to_remove: Array[Disease] = []
 	for disease in active_diseases:
 		# Reduce work efficiency and morale.
 		colony.morale -= disease.severity * disease.affected.size() * 0.01 * delta
 		colony.morale = clampf(colony.morale, 0.0, 100.0)
 		disease.contagion = maxf(0.0, disease.contagion - 0.001 * delta)
 		if disease.affected.size() == 0:
-			active_diseases.erase(disease)
+			to_remove.append(disease)
+	for disease in to_remove:
+		active_diseases.erase(disease)
 
 func to_dict() -> Dictionary:
 	var arr: Array[Dictionary] = []

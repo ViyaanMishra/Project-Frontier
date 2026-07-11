@@ -9,7 +9,7 @@ config/name="Project Frontier"
 config/version="0.1.0"
 run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://src/assets/textures/ui/game_icon.png"
 
 [display]
 window/size/viewport_width=1920
