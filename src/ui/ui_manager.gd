@@ -22,6 +22,12 @@ func _create_hud() -> void:
 	var panel: Panel = Panel.new()
 	panel.set_anchors_and_offsets_preset(Control.PRESET_TOP_LEFT, Control.PRESET_MODE_MINSIZE, 10)
 	panel.custom_minimum_size = Vector2(200, 120)
+	var bg: TextureRect = TextureRect.new()
+	bg.texture = AssetLibrary.hud_frame
+	bg.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	bg.stretch_mode = TextureRect.STRETCH_SCALE
+	bg.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	panel.add_child(bg)
 	var label: Label = Label.new()
 	label.name = "HudLabel"
 	label.position = Vector2(10, 10)
@@ -34,6 +40,12 @@ func _create_inventory() -> void:
 	panel.visible = false
 	panel.set_anchors_and_offsets_preset(Control.PRESET_CENTER, Control.PRESET_MODE_MINSIZE)
 	panel.custom_minimum_size = Vector2(400, 300)
+	var bg: TextureRect = TextureRect.new()
+	bg.texture = AssetLibrary.ui_panel
+	bg.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	bg.stretch_mode = TextureRect.STRETCH_SCALE
+	bg.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	panel.add_child(bg)
 	var label: Label = Label.new()
 	label.name = "InventoryLabel"
 	label.position = Vector2(10, 10)
@@ -46,6 +58,12 @@ func _create_crafting() -> void:
 	panel.visible = false
 	panel.set_anchors_and_offsets_preset(Control.PRESET_CENTER, Control.PRESET_MODE_MINSIZE)
 	panel.custom_minimum_size = Vector2(400, 300)
+	var bg: TextureRect = TextureRect.new()
+	bg.texture = AssetLibrary.ui_panel
+	bg.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	bg.stretch_mode = TextureRect.STRETCH_SCALE
+	bg.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	panel.add_child(bg)
 	var label: Label = Label.new()
 	label.name = "CraftingLabel"
 	label.position = Vector2(10, 10)
@@ -58,6 +76,12 @@ func _create_build() -> void:
 	panel.visible = false
 	panel.set_anchors_and_offsets_preset(Control.PRESET_CENTER, Control.PRESET_MODE_MINSIZE)
 	panel.custom_minimum_size = Vector2(400, 300)
+	var bg: TextureRect = TextureRect.new()
+	bg.texture = AssetLibrary.ui_panel
+	bg.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	bg.stretch_mode = TextureRect.STRETCH_SCALE
+	bg.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	panel.add_child(bg)
 	var label: Label = Label.new()
 	label.name = "BuildLabel"
 	label.position = Vector2(10, 10)
@@ -70,6 +94,12 @@ func _create_menu() -> void:
 	panel.visible = false
 	panel.set_anchors_and_offsets_preset(Control.PRESET_CENTER, Control.PRESET_MODE_MINSIZE)
 	panel.custom_minimum_size = Vector2(300, 200)
+	var bg: TextureRect = TextureRect.new()
+	bg.texture = AssetLibrary.menu_panel
+	bg.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	bg.stretch_mode = TextureRect.STRETCH_SCALE
+	bg.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	panel.add_child(bg)
 	var label: Label = Label.new()
 	label.name = "MenuLabel"
 	label.position = Vector2(10, 10)
@@ -83,6 +113,12 @@ func _create_debug() -> void:
 	panel.visible = false
 	panel.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_RIGHT, Control.PRESET_MODE_MINSIZE)
 	panel.custom_minimum_size = Vector2(300, 150)
+	var bg: TextureRect = TextureRect.new()
+	bg.texture = AssetLibrary.ui_panel
+	bg.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	bg.stretch_mode = TextureRect.STRETCH_SCALE
+	bg.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	panel.add_child(bg)
 	var label: Label = Label.new()
 	label.name = "DebugLabel"
 	label.position = Vector2(10, 10)

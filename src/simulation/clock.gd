@@ -33,6 +33,7 @@ func request_step() -> void:
 
 func set_time_scale(scale: Constants.TimeScale) -> void:
 	time_scale = scale
+	paused = (scale == Constants.TimeScale.PAUSED)
 
 func get_time() -> float:
 	return time

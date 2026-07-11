@@ -44,16 +44,18 @@ func add_item(item_id: String, quantity: int = 1, quality: float = 1.0) -> bool:
 
 func remove_item(item_id: String, quantity: int = 1) -> bool:
 	var needed: int = quantity
+	var to_remove: Array[InventorySlot] = []
 	for slot in slots:
 		if slot.item_id == item_id:
 			var take: int = mini(slot.quantity, needed)
 			slot.quantity -= take
 			needed -= take
 			if slot.quantity <= 0:
-				slots.erase(slot)
+				to_remove.append(slot)
 			if needed <= 0:
-				_recalc_weight()
-				return true
+				break
+	for slot in to_remove:
+		slots.erase(slot)
 	_recalc_weight()
 	return needed <= 0
 

@@ -56,7 +56,8 @@ func _generate_tile(wx: int, wy: int) -> WorldTile:
 func _noise(x: int, y: int, scale: float) -> float:
 	var fx: float = float(x) / scale
 	var fy: float = float(y) / scale
-	return sin(fx * 12.9898 + fy * 78.233) * 43758.5453
+	var raw: float = sin(fx * 12.9898 + fy * 78.233) * 43758.5453
+	return raw - floor(raw)
 
 func _distance_to_center(wx: int, wy: int) -> float:
 	var cx: float = Constants.WORLD_SIZE / 2.0

@@ -77,8 +77,11 @@ func _tile_color(tile: WorldTile) -> Color:
 
 func _draw() -> void:
 	draw_texture(_world_texture, Vector2.ZERO)
-	var ppos: Vector2 = Vector2(session.player.position) * tile_size
-	draw_circle(ppos, 4.0, Color.BLUE)
+	var entity_size: Vector2 = Vector2(12, 12)
+	for entity in session.entity_service.get_all():
+		var epos: Vector2 = Vector2(entity.position) * tile_size - entity_size * 0.5
+		var texture: Texture2D = AssetLibrary.get_character_texture(entity.type, entity.faction_id, entity.id)
+		draw_texture_rect(texture, Rect2(epos, entity_size), false, Color.WHITE)
 	var telemetry: Dictionary = session.get_telemetry()
 	var lines: Array[String] = [
 		"Time: %.1f Day %d" % [telemetry.simulation_time, telemetry.day],

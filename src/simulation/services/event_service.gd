@@ -24,8 +24,8 @@ func close_event(event_id: String) -> void:
 func update(delta: float, world: WorldService, colony: ColonyService, factions: FactionService) -> void:
 	_continuum_pressure += delta * 0.001
 	if _continuum_pressure > 1.0:
-		_continuum_pressure = 0.0
 		trigger("continuum_pulse", {"pressure": _continuum_pressure})
+		_continuum_pressure = 0.0
 	# Escalate raids based on time and pressure.
 	if active_events.size() == 0 and Determinism.randf() < 0.0001 * delta:
 		trigger("raid_warning", {"target": "colony"})
