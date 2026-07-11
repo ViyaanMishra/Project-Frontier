@@ -1,5 +1,6 @@
 *.import
 .import/
+.godot/
 user://saves/
 user://mods/
 logs/
