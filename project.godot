@@ -30,8 +30,8 @@ common/physics_ticks_per_second=60
 settings/stdout/print_fps=false
 
 [autoload]
-GameSession="*res://core/game_session.gd"
-Determinism="*res://core/determinism.gd"
+GameSession="*res://src/core/game_session.gd"
+Determinism="*res://src/core/determinism.gd"
 
 [layer_names]
 3d_navigation/layer_1="walkable"
