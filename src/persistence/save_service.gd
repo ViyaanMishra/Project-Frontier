@@ -17,7 +17,7 @@ func _ensure_dirs() -> void:
 	if dir != null:
 		dir.make_dir_recursive("saves")
 
-func save(slot: int, world: WorldService, colony: ColonyService, factions: FactionService, economy: EconomyService, events: EventService, player: EntityRecord, clock: SimulationClock) -> bool:
+func save(slot: int, world: WorldService, colony: ColonyService, factions: FactionService, economy: EconomyService, events: EventService, player: EntityRecord, clock: SimulationClock, extra: Dictionary = {}) -> bool:
 	var slot_dir: String = _base_dir + "slot_%d/" % slot
 	var temp_dir: String = slot_dir + "temp/"
 	DirAccess.make_dir_recursive_absolute(temp_dir)
@@ -44,6 +44,9 @@ func save(slot: int, world: WorldService, colony: ColonyService, factions: Facti
 	_write_record(temp_dir + "events.json", events)
 	_write_record(temp_dir + "player.json", player)
 	_write_record(temp_dir + "clock.json", clock)
+	for key in extra:
+		var record: RefCounted = extra[key]
+		_write_record(temp_dir + key + ".json", record)
 	# Write manifest.
 	var manifest_file: FileAccess = FileAccess.open(temp_dir + "manifest.json", FileAccess.WRITE)
 	manifest_file.store_string(JSON.stringify(manifest))
@@ -105,6 +108,18 @@ func load(slot: int) -> Dictionary:
 	data["events"] = _load_json(slot_dir + "events.json")
 	data["player"] = _load_json(slot_dir + "player.json")
 	data["clock"] = _load_json(slot_dir + "clock.json")
+	# Load any extra records.
+	var dir: DirAccess = DirAccess.open(slot_dir)
+	if dir != null:
+		dir.list_dir_begin()
+		var f: String = dir.get_next()
+		while f != "":
+			if f.ends_with(".json") and f != "manifest.json" and not f.begins_with("chunk_"):
+				var key: String = f.get_basename()
+				if not data.has(key):
+					data[key] = _load_json(slot_dir + f)
+			f = dir.get_next()
+		dir.list_dir_end()
 	load_completed.emit(slot, true)
 	return data
 
