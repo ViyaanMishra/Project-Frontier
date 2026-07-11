@@ -57,7 +57,7 @@ func _noise(x: int, y: int, scale: float) -> float:
 	var fx: float = float(x) / scale
 	var fy: float = float(y) / scale
 	var raw: float = sin(fx * 12.9898 + fy * 78.233) * 43758.5453
-	return raw - floor(raw)
+	return (raw - floor(raw)) * 2.0 - 1.0
 
 func _distance_to_center(wx: int, wy: int) -> float:
 	var cx: float = Constants.WORLD_SIZE / 2.0
