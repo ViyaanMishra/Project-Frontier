@@ -1,0 +1,9 @@
+*.import
+.import/
+user://saves/
+user://mods/
+logs/
+*.log
+.vscode/
+.DS_Store
+Thumbs.db
