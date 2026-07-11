@@ -1,0 +1,23 @@
+name: Test
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download Godot 4.4.1
+        run: |
+          curl -L -o godot.zip https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_linux.x86_64.zip
+          unzip -q godot.zip
+          chmod +x Godot_v4.4.1-stable_linux.x86_64
+          sudo mv Godot_v4.4.1-stable_linux.x86_64 /usr/local/bin/godot
+      - name: Import project
+        run: godot --headless --editor --quit
+      - name: Run tests
+        run: godot --headless src/tests/test_scene.tscn

@@ -1,0 +1,41 @@
+; Engine Configuration File.
+; Project Frontier — Production Prototype
+; Godot version: 4.4.1 stable
+
+config_version=5
+
+[application]
+config/name="Project Frontier"
+config/version="0.1.0"
+run/main_scene="res://scenes/main.tscn"
+config/features=PackedStringArray("4.4", "GL Compatibility")
+config/icon="res://icon.svg"
+
+[display]
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/window_width=1920
+window/size/window_height=1080
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+
+[rendering]
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+
+[physics]
+common/physics_ticks_per_second=60
+
+[debug]
+settings/stdout/print_fps=false
+
+[autoload]
+GameSession="*res://src/core/game_session.gd"
+Determinism="*res://src/core/determinism.gd"
+
+[layer_names]
+3d_navigation/layer_1="walkable"
+3d_navigation/layer_2="obstacle"
+
+[project]
+name="Project Frontier"

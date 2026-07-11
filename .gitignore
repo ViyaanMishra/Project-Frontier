@@ -1,0 +1,10 @@
+*.import
+.import/
+.godot/
+user://saves/
+user://mods/
+logs/
+*.log
+.vscode/
+.DS_Store
+Thumbs.db

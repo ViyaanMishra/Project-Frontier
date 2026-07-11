@@ -1,0 +1,51 @@
+{
+  "items": [
+    {
+      "id": "wood",
+      "display_name": "Wood",
+      "description": "Basic construction material.",
+      "weight": 0.5,
+      "max_stack": 64,
+      "category": "resource",
+      "tags": ["raw"]
+    },
+    {
+      "id": "stone",
+      "display_name": "Stone",
+      "description": "Heavy raw material.",
+      "weight": 1.0,
+      "max_stack": 32,
+      "category": "resource",
+      "tags": ["raw"]
+    },
+    {
+      "id": "metal_scrap",
+      "display_name": "Metal Scrap",
+      "description": "Salvaged metal.",
+      "weight": 0.8,
+      "max_stack": 32,
+      "category": "resource",
+      "tags": ["raw"]
+    },
+    {
+      "id": "food_ration",
+      "display_name": "Food Ration",
+      "description": "Restores hunger.",
+      "weight": 0.2,
+      "max_stack": 20,
+      "category": "consumable",
+      "tags": ["food"],
+      "use_effects": [{"type": "hunger", "value": 20.0}]
+    },
+    {
+      "id": "knife",
+      "display_name": "Crude Knife",
+      "description": "A basic weapon.",
+      "weight": 1.5,
+      "max_stack": 1,
+      "category": "weapon",
+      "equip_slot": "main_hand",
+      "tags": ["weapon"]
+    }
+  ]
+}

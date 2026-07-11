@@ -1,0 +1,27 @@
+{
+  "buildings": [
+    {
+      "id": "campfire",
+      "display_name": "Campfire",
+      "description": "Basic cooking and warmth.",
+      "costs": [
+        {"item": "wood", "quantity": 5}
+      ],
+      "size": {"x": 1, "y": 1},
+      "category": "production",
+      "construction_time": 5.0
+    },
+    {
+      "id": "workshop",
+      "display_name": "Workshop",
+      "description": "Crafts tools and industrial goods.",
+      "costs": [
+        {"item": "wood", "quantity": 20},
+        {"item": "stone", "quantity": 10}
+      ],
+      "size": {"x": 2, "y": 2},
+      "category": "production",
+      "construction_time": 30.0
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "recipes": [
+    {
+      "id": "crude_knife",
+      "inputs": [
+        {"item": "stone", "quantity": 2},
+        {"item": "wood", "quantity": 1}
+      ],
+      "outputs": [
+        {"item": "knife", "quantity": 1}
+      ],
+      "station": "any",
+      "time": 5.0
+    },
+    {
+      "id": "campfire",
+      "inputs": [
+        {"item": "wood", "quantity": 5}
+      ],
+      "outputs": [
+        {"item": "food_ration", "quantity": 1}
+      ],
+      "station": "campfire",
+      "time": 10.0
+    }
+  ]
+}
